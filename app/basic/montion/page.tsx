@@ -1,9 +1,8 @@
 import React from "react";
 import FadeIn from "@/components/animations/fade-in";
-import { SubTitle, Title } from "@/components/common/display";
+import { Title } from "@/components/common/display";
 import { Previewer } from "@/components/custom/previewer";
 import { FADE_IN_CODE } from "@/data/codes";
-import Code from "@/components/custom/code";
 import Editor from "@/components/custom/code";
 import { Separator } from "@/components/ui/separator";
 
@@ -20,8 +19,8 @@ const MotionComponents = () => {
           description="Example of how to use FadeIn animation with frame motion."
           fragment={FADE_IN_CODE}
           preview={
-            <FadeIn>
-              <div className="w-52 h-52 rounded-full bg-red-300" />
+            <FadeIn initial={0} animate={1} duration={1}>
+              <div className="w-52 h-52 rounded-full from-orange-500 to-yellow-500 bg-gradient-to-t" />
             </FadeIn>
           }
           code={
