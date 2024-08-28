@@ -39,7 +39,7 @@ const LayoutProp = () => {
             >
               <div className='mt-3'>
                 <div className='font-medium'>Card Tilte</div>
-                <div className='text-[12px] opacity-80 max-w-80'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam nemo eaque error inventore dolor pariatur quis. Laborum omnis architecto voluptatibus nihil, maxime nemo nisi neque eveniet reprehenderit laboriosam dolor excepturi!</div>
+                <div className='text-[12px] opacity-80 max-w-80 mobile:max-w-60'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam nemo eaque error inventore dolor pariatur quis. Laborum omnis architecto voluptatibus nihil, maxime nemo nisi neque eveniet reprehenderit laboriosam dolor excepturi!</div>
               </div>
             </ExpandingCard>
           }

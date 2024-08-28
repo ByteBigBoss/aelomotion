@@ -48,8 +48,9 @@ interface PreviewerProps {
     SetCount: (count: number) => void;
     isRefreshing: boolean;
     animeName:string
+    hideIcon?: boolean;
 }
-export const Preview = ({ children, SetCount, isRefreshing, animeName }: PreviewerProps) => {
+export const Preview = ({ children, SetCount, isRefreshing, animeName, hideIcon=false }: PreviewerProps) => {
     const [count, setCount] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -71,7 +72,7 @@ export const Preview = ({ children, SetCount, isRefreshing, animeName }: Preview
 
             {isRefreshing &&
                 <div  className="h-[50px] w-full px-6 rounded-b-[24px] flex justify-between">
-                    <span>{animeName}</span><RotateCw onClick={handleClick} className={isLoading ? 'animate-spin duration-200' : 'animate-none'} />
+                    <span>{animeName}</span>{!hideIcon && <RotateCw onClick={handleClick} className={isLoading ? 'animate-spin duration-200' : 'animate-none'} />}
                 </div>
             }
         </div>

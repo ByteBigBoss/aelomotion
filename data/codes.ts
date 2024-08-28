@@ -689,3 +689,358 @@ export const Preview = ({ children, SetCount, isRefreshing, animeName }: Preview
     )
 };
 `;
+
+export const POSITION = `
+import Modal from '@/components/animations/modal'
+import React from 'react'
+
+const Position = () => {
+  return (
+    <div className="p-5">
+   
+        <PositionAnimation animate={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 500 }}>
+          <div className="w-52 h-52 rounded-full from-orange-500 to-yellow-500 bg-gradient-to-t" />
+        </PositionAnimation>
+        
+    </div>
+  )
+}
+
+export default Position
+
+
+"use client"
+import React, { useEffect, useState } from 'react';
+import { Preview } from '../common/display';
+import { motion, useAnimation } from "framer-motion";
+
+interface PositionProps {
+    children: React.ReactNode;
+    initial: ControlProps;
+    animate: ControlProps;
+
+}
+
+interface ControlProps {
+    opacity: number;
+    y: number;
+}
+
+const PositionAnimation = ({ children, animate, initial }: PositionProps) => {
+
+    const [count, setCount] = useState(0);
+    const controls = useAnimation();
+
+    useEffect(() => {
+        controls.start({ opacity: animate.opacity, y: animate.y });
+    }, []);
+
+    return (
+        <Preview SetCount={setCount} isRefreshing={true} hideIcon animeName='Position Animation'>
+            <motion.div key={count} animate={controls} initial={{ opacity: initial.opacity, y: initial.y }}>
+                {children}
+            </motion.div>
+        </Preview>
+    );
+}
+
+export default PositionAnimation;
+
+
+interface PreviewerProps {
+    children: React.ReactNode;
+    SetCount: (count: number) => void;
+    isRefreshing: boolean;
+    animeName:string
+}
+export const Preview = ({ children, SetCount, isRefreshing, animeName }: PreviewerProps) => {
+    const [count, setCount] = useState(0);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleClick = () => {
+        setIsLoading(true);
+        setCount(count + 1);
+
+        SetCount(count + 1);
+
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 400); // Timeout duration matches the animation duration
+    };
+    return (
+        <div className="w-full h-full flex flex-col">
+            <div className="w-full flex-1 flex justify-center items-center">
+            {children}
+            </div>
+
+            {isRefreshing &&
+                <div onClick={handleClick} className="h-[50px] w-full px-6 rounded-b-[24px] flex justify-between">
+                    <span>{animeName}</span><RotateCw className={isLoading ? 'animate-spin duration-200' : 'animate-none'} />
+                </div>
+            }
+        </div>
+    )
+};
+`;
+
+export const SCROLL = `
+import Modal from '@/components/animations/modal'
+import React from 'react'
+
+const Scroll = () => {
+  return (
+    <div className="p-5">
+   
+        <ScrollAnimation
+
+          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 50 }}
+          threshold={0.5} // Animation triggers when 50% of the element is in view
+        >
+          <div className="w-52 h-52 rounded-full from-orange-500 to-yellow-500 bg-gradient-to-t" />
+        </ScrollAnimation>
+        
+    </div>
+  )
+}
+
+export default Scroll
+
+
+"use client";
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import { Preview } from '../common/display';
+
+interface ScrollProps {
+    children: React.ReactNode;
+    initial: ControlProps;
+    animate: ControlProps;
+    threshold?: number;
+
+}
+
+interface ControlProps {
+    opacity: number;
+    y: number;
+}
+
+const ScrollAnimation = ({ children, animate, initial, threshold = 0.5 }: ScrollProps) => {
+    const [count, setCount] = useState(0);
+
+    const controls = useAnimation();
+    const ref = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    controls.start({ opacity: animate.opacity, y: animate.y });
+                }
+            },
+            { threshold }
+        );
+
+        if (ref.current) {
+            observer.observe(ref.current);
+        }
+
+        return () => {
+            if (ref.current) {
+                observer.unobserve(ref.current);
+            }
+        };
+    }, [controls, animate, threshold]);
+
+    return (
+        <Preview SetCount={setCount} isRefreshing={true} hideIcon animeName='Scroll Animation'>
+            <motion.div
+                key={count}
+                ref={ref}
+                animate={controls}
+                initial={{ opacity: initial.opacity, y: initial.y }}
+            >
+                {children}
+            </motion.div>
+        </Preview>
+    );
+};
+
+export default ScrollAnimation;
+
+
+interface PreviewerProps {
+    children: React.ReactNode;
+    SetCount: (count: number) => void;
+    isRefreshing: boolean;
+    animeName:string
+}
+export const Preview = ({ children, SetCount, isRefreshing, animeName }: PreviewerProps) => {
+    const [count, setCount] = useState(0);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleClick = () => {
+        setIsLoading(true);
+        setCount(count + 1);
+
+        SetCount(count + 1);
+
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 400); // Timeout duration matches the animation duration
+    };
+    return (
+        <div className="w-full h-full flex flex-col">
+            <div className="w-full flex-1 flex justify-center items-center">
+            {children}
+            </div>
+
+            {isRefreshing &&
+                <div onClick={handleClick} className="h-[50px] w-full px-6 rounded-b-[24px] flex justify-between">
+                    <span>{animeName}</span><RotateCw className={isLoading ? 'animate-spin duration-200' : 'animate-none'} />
+                </div>
+            }
+        </div>
+    )
+};
+`;
+
+export const TWO_WAY_SCROLL = `
+import Modal from '@/components/animations/modal'
+import React from 'react'
+
+const Scroll = () => {
+  return (
+    <div className="p-5">
+   
+        <TwoWayScrollAnimation
+          animate={{ opacity: 1, y: 0 }}  // Animation when scrolling down
+          reverse={{ opacity: 0, y: 50 }} // Reverse animation when scrolling up
+          initial={{ opacity: 0, y: 50 }}   // Initial state
+          threshold={0.5}  // Trigger when 50% of the element is in view
+        >
+          <div className="w-52 h-52 rounded-full from-purple-500 to-pink-500 bg-gradient-to-t" />
+        </TwoWayScrollAnimation>
+        
+    </div>
+  )
+}
+
+export default Scroll
+
+
+"use client";
+import React, { useEffect, useRef, useState } from 'react';
+import { motion, useAnimation } from 'framer-motion';
+
+interface ScrollProps {
+    children: React.ReactNode;
+    initial: ControlProps;
+    animate: ControlProps;
+    reverse: ControlProps;
+    threshold?: number;
+}
+
+interface ControlProps {
+    opacity: number;
+    y: number;
+}
+
+const TwoWayScrollAnimation = ({ children, animate, initial, reverse, threshold = 0.5 }: ScrollProps) => {
+    const controls = useAnimation();
+    const ref = useRef<HTMLDivElement>(null);
+    const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('down');
+    const [lastScrollTop, setLastScrollTop] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop) {
+                setScrollDirection('down');
+            } else {
+                setScrollDirection('up');
+            }
+            setLastScrollTop(scrollTop <= 0 ? 0 : scrollTop);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [lastScrollTop]);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    if (scrollDirection === 'down') {
+                        controls.start({ opacity: animate.opacity, y: animate.y });
+                    } else {
+                        controls.start({ opacity: reverse.opacity, y: reverse.y });
+                    }
+                }
+            },
+            { threshold }
+        );
+
+        if (ref.current) {
+            observer.observe(ref.current);
+        }
+
+        return () => {
+            if (ref.current) {
+                observer.unobserve(ref.current);
+            }
+        };
+    }, [controls, animate, reverse, threshold, scrollDirection]);
+
+    return (
+        <motion.div
+            ref={ref}
+            animate={controls}
+            initial={{ opacity: initial.opacity, y: initial.y }}
+        >
+            {children}
+        </motion.div>
+    );
+};
+
+export default TwoWayScrollAnimation;
+
+
+interface PreviewerProps {
+    children: React.ReactNode;
+    SetCount: (count: number) => void;
+    isRefreshing: boolean;
+    animeName:string
+}
+export const Preview = ({ children, SetCount, isRefreshing, animeName }: PreviewerProps) => {
+    const [count, setCount] = useState(0);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleClick = () => {
+        setIsLoading(true);
+        setCount(count + 1);
+
+        SetCount(count + 1);
+
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 400); // Timeout duration matches the animation duration
+    };
+    return (
+        <div className="w-full h-full flex flex-col">
+            <div className="w-full flex-1 flex justify-center items-center">
+            {children}
+            </div>
+
+            {isRefreshing &&
+                <div onClick={handleClick} className="h-[50px] w-full px-6 rounded-b-[24px] flex justify-between">
+                    <span>{animeName}</span><RotateCw className={isLoading ? 'animate-spin duration-200' : 'animate-none'} />
+                </div>
+            }
+        </div>
+    )
+};
+`;

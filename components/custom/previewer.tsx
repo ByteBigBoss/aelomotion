@@ -10,7 +10,7 @@ import FadeIn from "../animations/fade-in";
 import { BlockText, SubTitle } from "../common/display";
 
 
-export function Previewer({ preview, code, fragment, title, description, fileName }: Readonly<{ preview: React.ReactNode; code: React.ReactNode; fragment: string, title?: string; description?: string; fileName:string }>) {
+export function Previewer({ preview, code, fragment, title, description, fileName, className }: Readonly<{ preview: React.ReactNode; code: React.ReactNode; fragment: string, title?: string; description?: string; fileName:string; className?:string; }>) {
 
     const [count, setCount] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
@@ -71,7 +71,7 @@ export function Previewer({ preview, code, fragment, title, description, fileNam
     return (
         <div className="w-full flex flex-col px-4 ">
             <div className=""><BlockText title={title} des={description} /></div>
-            <div className="tab-con [perspective:1000px] relative flex flex-col mx-auto w-full items-start justify-start mb-40 mt-8">
+            <div className={`tab-con [perspective:1000px] relative flex flex-col mx-auto w-full items-start justify-start ${className?className:'mb-40 mt-8'}`}>
                 <Tabs tabs={tabs} />
             </div>
         </div>

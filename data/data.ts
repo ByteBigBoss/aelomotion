@@ -65,12 +65,17 @@ export const SidebarContent = [
     {
         "ID":5,
         "name":"Custom Animations",
-        "href":"/custom/hook",
+        "href":"/custom/hook/position-animation",
         "contents":[
             {
                 "ID":5,
-                "name":"useAnimation Hook",
-                "href":"/custom/hook"
+                "name":"Position Animation",
+                "href":"/custom/hook/position-animation"
+            },
+            {
+                "ID":5,
+                "name":"Scroll Animation",
+                "href":"/custom/hook/scroll-animation"
             },
         ]
     },
