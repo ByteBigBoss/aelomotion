@@ -56,8 +56,9 @@ interface PreviewerProps {
     SetCount: (count: number) => void;
     isRefreshing: boolean;
     animeName:string
+    hideIcon?: boolean;
 }
-export const Preview = ({ children, SetCount, isRefreshing, animeName }: PreviewerProps) => {
+export const Preview = ({ children, SetCount, isRefreshing, animeName, hideIcon=false }: PreviewerProps) => {
     const [count, setCount] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -78,8 +79,8 @@ export const Preview = ({ children, SetCount, isRefreshing, animeName }: Preview
             </div>
 
             {isRefreshing &&
-                <div onClick={handleClick} className="h-[50px] w-full px-6 rounded-b-[24px] flex justify-between">
-                    <span>{animeName}</span><RotateCw className={isLoading ? 'animate-spin duration-200' : 'animate-none'} />
+                <div  className="h-[50px] w-full px-6 rounded-b-[24px] flex justify-between">
+                    <span>{animeName}</span>{!hideIcon && <RotateCw onClick={handleClick} className={isLoading ? 'animate-spin duration-200' : 'animate-none'} />}
                 </div>
             }
         </div>
@@ -146,8 +147,9 @@ interface PreviewerProps {
     SetCount: (count: number) => void;
     isRefreshing: boolean;
     animeName:string
+    hideIcon?: boolean;
 }
-export const Preview = ({ children, SetCount, isRefreshing, animeName }: PreviewerProps) => {
+export const Preview = ({ children, SetCount, isRefreshing, animeName, hideIcon=false }: PreviewerProps) => {
     const [count, setCount] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -168,8 +170,8 @@ export const Preview = ({ children, SetCount, isRefreshing, animeName }: Preview
             </div>
 
             {isRefreshing &&
-                <div onClick={handleClick} className="h-[50px] w-full px-6 rounded-b-[24px] flex justify-between">
-                    <span>{animeName}</span><RotateCw className={isLoading ? 'animate-spin duration-200' : 'animate-none'} />
+                <div  className="h-[50px] w-full px-6 rounded-b-[24px] flex justify-between">
+                    <span>{animeName}</span>{!hideIcon && <RotateCw onClick={handleClick} className={isLoading ? 'animate-spin duration-200' : 'animate-none'} />}
                 </div>
             }
         </div>
@@ -350,8 +352,9 @@ interface PreviewerProps {
     SetCount: (count: number) => void;
     isRefreshing: boolean;
     animeName:string
+    hideIcon?: boolean;
 }
-export const Preview = ({ children, SetCount, isRefreshing, animeName }: PreviewerProps) => {
+export const Preview = ({ children, SetCount, isRefreshing, animeName, hideIcon=false }: PreviewerProps) => {
     const [count, setCount] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -372,8 +375,8 @@ export const Preview = ({ children, SetCount, isRefreshing, animeName }: Preview
             </div>
 
             {isRefreshing &&
-                <div onClick={handleClick} className="h-[50px] w-full px-6 rounded-b-[24px] flex justify-between">
-                    <span>{animeName}</span><RotateCw className={isLoading ? 'animate-spin duration-200' : 'animate-none'} />
+                <div  className="h-[50px] w-full px-6 rounded-b-[24px] flex justify-between">
+                    <span>{animeName}</span>{!hideIcon && <RotateCw onClick={handleClick} className={isLoading ? 'animate-spin duration-200' : 'animate-none'} />}
                 </div>
             }
         </div>
@@ -548,8 +551,9 @@ interface PreviewerProps {
     SetCount: (count: number) => void;
     isRefreshing: boolean;
     animeName:string
+    hideIcon?: boolean;
 }
-export const Preview = ({ children, SetCount, isRefreshing, animeName }: PreviewerProps) => {
+export const Preview = ({ children, SetCount, isRefreshing, animeName, hideIcon=false }: PreviewerProps) => {
     const [count, setCount] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -570,8 +574,8 @@ export const Preview = ({ children, SetCount, isRefreshing, animeName }: Preview
             </div>
 
             {isRefreshing &&
-                <div onClick={handleClick} className="h-[50px] w-full px-6 rounded-b-[24px] flex justify-between">
-                    <span>{animeName}</span><RotateCw className={isLoading ? 'animate-spin duration-200' : 'animate-none'} />
+                <div  className="h-[50px] w-full px-6 rounded-b-[24px] flex justify-between">
+                    <span>{animeName}</span>{!hideIcon && <RotateCw onClick={handleClick} className={isLoading ? 'animate-spin duration-200' : 'animate-none'} />}
                 </div>
             }
         </div>
@@ -659,8 +663,9 @@ interface PreviewerProps {
     SetCount: (count: number) => void;
     isRefreshing: boolean;
     animeName:string
+    hideIcon?: boolean;
 }
-export const Preview = ({ children, SetCount, isRefreshing, animeName }: PreviewerProps) => {
+export const Preview = ({ children, SetCount, isRefreshing, animeName, hideIcon=false }: PreviewerProps) => {
     const [count, setCount] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -681,8 +686,8 @@ export const Preview = ({ children, SetCount, isRefreshing, animeName }: Preview
             </div>
 
             {isRefreshing &&
-                <div onClick={handleClick} className="h-[50px] w-full px-6 rounded-b-[24px] flex justify-between">
-                    <span>{animeName}</span><RotateCw className={isLoading ? 'animate-spin duration-200' : 'animate-none'} />
+                <div  className="h-[50px] w-full px-6 rounded-b-[24px] flex justify-between">
+                    <span>{animeName}</span>{!hideIcon && <RotateCw onClick={handleClick} className={isLoading ? 'animate-spin duration-200' : 'animate-none'} />}
                 </div>
             }
         </div>
@@ -752,8 +757,9 @@ interface PreviewerProps {
     SetCount: (count: number) => void;
     isRefreshing: boolean;
     animeName:string
+    hideIcon?: boolean;
 }
-export const Preview = ({ children, SetCount, isRefreshing, animeName }: PreviewerProps) => {
+export const Preview = ({ children, SetCount, isRefreshing, animeName, hideIcon=false }: PreviewerProps) => {
     const [count, setCount] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -774,8 +780,8 @@ export const Preview = ({ children, SetCount, isRefreshing, animeName }: Preview
             </div>
 
             {isRefreshing &&
-                <div onClick={handleClick} className="h-[50px] w-full px-6 rounded-b-[24px] flex justify-between">
-                    <span>{animeName}</span><RotateCw className={isLoading ? 'animate-spin duration-200' : 'animate-none'} />
+                <div  className="h-[50px] w-full px-6 rounded-b-[24px] flex justify-between">
+                    <span>{animeName}</span>{!hideIcon && <RotateCw onClick={handleClick} className={isLoading ? 'animate-spin duration-200' : 'animate-none'} />}
                 </div>
             }
         </div>
@@ -874,8 +880,9 @@ interface PreviewerProps {
     SetCount: (count: number) => void;
     isRefreshing: boolean;
     animeName:string
+    hideIcon?: boolean;
 }
-export const Preview = ({ children, SetCount, isRefreshing, animeName }: PreviewerProps) => {
+export const Preview = ({ children, SetCount, isRefreshing, animeName, hideIcon=false }: PreviewerProps) => {
     const [count, setCount] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -896,8 +903,8 @@ export const Preview = ({ children, SetCount, isRefreshing, animeName }: Preview
             </div>
 
             {isRefreshing &&
-                <div onClick={handleClick} className="h-[50px] w-full px-6 rounded-b-[24px] flex justify-between">
-                    <span>{animeName}</span><RotateCw className={isLoading ? 'animate-spin duration-200' : 'animate-none'} />
+                <div  className="h-[50px] w-full px-6 rounded-b-[24px] flex justify-between">
+                    <span>{animeName}</span>{!hideIcon && <RotateCw onClick={handleClick} className={isLoading ? 'animate-spin duration-200' : 'animate-none'} />}
                 </div>
             }
         </div>
@@ -932,6 +939,7 @@ export default Scroll
 "use client";
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
+import { Preview } from '../common/display';
 
 interface ScrollProps {
     children: React.ReactNode;
@@ -947,6 +955,7 @@ interface ControlProps {
 }
 
 const TwoWayScrollAnimation = ({ children, animate, initial, reverse, threshold = 0.5 }: ScrollProps) => {
+    const [count, setCount] = useState(0);
     const controls = useAnimation();
     const ref = useRef<HTMLDivElement>(null);
     const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('down');
@@ -996,13 +1005,16 @@ const TwoWayScrollAnimation = ({ children, animate, initial, reverse, threshold 
     }, [controls, animate, reverse, threshold, scrollDirection]);
 
     return (
-        <motion.div
-            ref={ref}
-            animate={controls}
-            initial={{ opacity: initial.opacity, y: initial.y }}
-        >
-            {children}
-        </motion.div>
+        <Preview SetCount={setCount} isRefreshing={true} hideIcon animeName='Two Way Scroll Animation'>
+            <motion.div
+                key={count}
+                ref={ref}
+                animate={controls}
+                initial={{ opacity: initial.opacity, y: initial.y }}
+            >
+                {children}
+            </motion.div>
+        </Preview>
     );
 };
 
@@ -1014,8 +1026,9 @@ interface PreviewerProps {
     SetCount: (count: number) => void;
     isRefreshing: boolean;
     animeName:string
+    hideIcon?: boolean;
 }
-export const Preview = ({ children, SetCount, isRefreshing, animeName }: PreviewerProps) => {
+export const Preview = ({ children, SetCount, isRefreshing, animeName, hideIcon=false }: PreviewerProps) => {
     const [count, setCount] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -1036,8 +1049,8 @@ export const Preview = ({ children, SetCount, isRefreshing, animeName }: Preview
             </div>
 
             {isRefreshing &&
-                <div onClick={handleClick} className="h-[50px] w-full px-6 rounded-b-[24px] flex justify-between">
-                    <span>{animeName}</span><RotateCw className={isLoading ? 'animate-spin duration-200' : 'animate-none'} />
+                <div  className="h-[50px] w-full px-6 rounded-b-[24px] flex justify-between">
+                    <span>{animeName}</span>{!hideIcon && <RotateCw onClick={handleClick} className={isLoading ? 'animate-spin duration-200' : 'animate-none'} />}
                 </div>
             }
         </div>
