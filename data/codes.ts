@@ -270,3 +270,198 @@ export const Preview = ({ children, SetCount, isRefreshing, animeName }: Preview
     )
 };
 `;
+
+
+export const ANIMATED_BUTTON = `
+import AnimatedButton from '@/components/animations/animated-button'
+import React from 'react'
+
+const Variants = () => {
+  return (
+    <div className="p-5">
+   
+        <AnimatedButton className='px-6 py-3 rounded-md bg-black dark:bg-orange-500' hoverVarints={{scale:1.2, boxShadow: "0px 2px 8px rgb(0,0,0,0.2)"}} tapVariants={{scale: 0.9}}>
+            <span className='text-white'>Click Me</span>
+        </AnimatedButton>
+        
+  
+    </div>
+  )
+}
+
+export default Variants
+
+
+"use client"
+import React, { useState } from 'react';
+import { Preview } from '../common/display';
+import { motion } from "framer-motion";
+
+interface hoverProps {
+    scale: number;
+    boxShadow: string;
+}
+
+interface tapProps {
+    scale: number;
+}
+
+interface AnimatedButtonProps {
+    children: React.ReactNode;
+    hoverVarints: hoverProps;
+    tapVariants: tapProps;
+    className?:string;
+}
+
+const AnimatedButton = ({ children, hoverVarints, tapVariants ,className}: AnimatedButtonProps) => {
+    const [count, setCount] = useState(0);
+
+    const buttonVariants = {
+        hover: { scale: hoverVarints.scale, boxShadow: hoverVarints.boxShadow },
+        tap: { scale: tapVariants.scale }
+    };
+
+    return (
+        <Preview SetCount={setCount} isRefreshing={true} animeName='AnimatedButton'>
+            <motion.button
+                key={count}
+                variants={buttonVariants}
+                whileHover="hover"
+                whileTap="tap"
+                className={className}
+            >
+                {children}
+            </motion.button>
+        </Preview>
+    )
+}
+
+export default AnimatedButton
+
+
+interface PreviewerProps {
+    children: React.ReactNode;
+    SetCount: (count: number) => void;
+    isRefreshing: boolean;
+    animeName:string
+}
+export const Preview = ({ children, SetCount, isRefreshing, animeName }: PreviewerProps) => {
+    const [count, setCount] = useState(0);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleClick = () => {
+        setIsLoading(true);
+        setCount(count + 1);
+
+        SetCount(count + 1);
+
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 400); // Timeout duration matches the animation duration
+    };
+    return (
+        <div className="w-full h-full flex flex-col">
+            <div className="w-full flex-1 flex justify-center items-center">
+            {children}
+            </div>
+
+            {isRefreshing &&
+                <div onClick={handleClick} className="h-[50px] w-full px-6 rounded-b-[24px] flex justify-between">
+                    <span>{animeName}</span><RotateCw className={isLoading ? 'animate-spin duration-200' : 'animate-none'} />
+                </div>
+            }
+        </div>
+    )
+};
+`;
+
+export const ROTATING = `
+import Rotating from '@/components/animations/rotating'
+import React from 'react'
+
+const Keyframes = () => {
+  return (
+    <div className="p-5">
+   
+        <Rotating rotate={[0,90, 180, 270, 360]} transition={{duration:2,repeat:Infinity}}>
+            <div className="w-52 h-52 rounded-[24px] from-rose-500 via-pink-500 to-purple-500 bg-gradient-to-t" />
+        </Rotating>
+        
+  
+    </div>
+  )
+}
+
+export default Keyframes
+
+
+"use client"
+import React, { useState } from 'react';
+import { Preview } from '../common/display';
+import { motion } from "framer-motion";
+
+interface transitionProps{
+    repeat: number;
+    duration: number;
+}
+
+interface RotateProps{
+    children: React.ReactNode;
+    rotate: number[];
+    transition:transitionProps;
+}
+
+const Rotating = ({ children, rotate,transition  }:RotateProps) => {
+    const [count, setCount] = useState(0);
+
+    return (
+        <Preview SetCount={setCount} isRefreshing={true} animeName='Rotating'>
+           <motion.div
+           key={count}
+            animate={{ rotate: rotate}}
+            transition={{duration: transition.duration, repeat: transition.repeat}}
+        >
+            {children}
+        </motion.div>
+        </Preview>
+    );
+};
+
+export default Rotating;
+
+
+interface PreviewerProps {
+    children: React.ReactNode;
+    SetCount: (count: number) => void;
+    isRefreshing: boolean;
+    animeName:string
+}
+export const Preview = ({ children, SetCount, isRefreshing, animeName }: PreviewerProps) => {
+    const [count, setCount] = useState(0);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleClick = () => {
+        setIsLoading(true);
+        setCount(count + 1);
+
+        SetCount(count + 1);
+
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 400); // Timeout duration matches the animation duration
+    };
+    return (
+        <div className="w-full h-full flex flex-col">
+            <div className="w-full flex-1 flex justify-center items-center">
+            {children}
+            </div>
+
+            {isRefreshing &&
+                <div onClick={handleClick} className="h-[50px] w-full px-6 rounded-b-[24px] flex justify-between">
+                    <span>{animeName}</span><RotateCw className={isLoading ? 'animate-spin duration-200' : 'animate-none'} />
+                </div>
+            }
+        </div>
+    )
+};
+`;

@@ -10,7 +10,7 @@ import FadeIn from "../animations/fade-in";
 import { BlockText, SubTitle } from "../common/display";
 
 
-export function Previewer({ preview, code, fragment, title, description }: Readonly<{ preview: React.ReactNode; code: React.ReactNode; fragment: string, title?: string; description?: string; }>) {
+export function Previewer({ preview, code, fragment, title, description, fileName }: Readonly<{ preview: React.ReactNode; code: React.ReactNode; fragment: string, title?: string; description?: string; fileName:string }>) {
 
     const [count, setCount] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
@@ -51,7 +51,7 @@ export function Previewer({ preview, code, fragment, title, description }: Reado
                 <div className="z-[5000] h-full overflow-hidden">
                     <div className="w-full flex flex-col relative items-center mb-[8px] min-h-[160px] h-full rounded-[30px] bg-imcrox-tertiary-bcolor-dark border-imcrox-brcolor-dark border">
                         <div className="w-full z-[4000] flex items-center justify-between bg-imcrox-secondary-bcolor-dark border-b border-imcrox-brcolor-dark box-border px-[24px] h-[40px] rounded-t-[30px]">
-                            <span className="text-[12px] text-imcrox-white-64">fade-in.tsx</span>
+                            <span className="text-[12px] text-imcrox-white-64">{fileName}</span>
                             <div onClick={handleCopy} className="flex relative justify-center items-center h-tick-box">
                                 <ConfettiButton className="z-[2000]">
                                     <Clipboard width={15} height={15} className="text-imcrox-white-64" />

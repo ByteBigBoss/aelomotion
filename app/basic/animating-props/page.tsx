@@ -17,6 +17,7 @@ const AnimatedProps = () => {
         <Previewer
           title="Moving an Element"
           description="Example of how to Moving an Element with frame motion."
+          fileName='move-element.tsx'
           fragment={MOVE_ELEMENT}
           preview={
            <MoveElement animate={100} initial={-100}  duration={1}>

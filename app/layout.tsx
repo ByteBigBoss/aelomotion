@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import Sidebar from "@/components/sidebar";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import Footer from "@/components/Footer";
 import { ScrollArea } from "@/components/ui/scroll-area"
 import Menubar from "@/components/menubar";
-import { rajdhani } from "@/lib/fonts";
+import { poppins, rajdhani } from "@/lib/fonts";
 import Link from "next/link";
 
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Aelomotion",
@@ -23,11 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} flex`}>
+      <body className={`${poppins.className} flex`}>
         <ThemeProvider
           enableSystem
           attribute='class'
-          defaultTheme='system'
+          defaultTheme='light'
           themes={[
             'light',
             'dark',
@@ -39,7 +37,7 @@ export default function RootLayout({
             'reddit'
           ]}
         >
-          <aside className="w-[300px] sidebar  fixed top-0 left-0 min-h-screen from-blue-800 to-blue-500 bg-gradient-to-t box-border  text-white ">
+          <aside className="w-[300px] sidebar  fixed top-0 left-0 min-h-screen from-[#277d90] to-[#00a465] bg-gradient-to-t box-border  text-white ">
             <ScrollArea className="h-[100vh] w-full py-4">
               <Sidebar />
             </ScrollArea>

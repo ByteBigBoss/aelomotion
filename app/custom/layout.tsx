@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Basic Components and Animations",
-    description: "Basic Framer Motion Animations",
+    title: "Custom Animations",
+    description: "Animations with Framer Motion useAnimation Hook",
 };
 
-export default function BasicLayout({
+export default function AnimateLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
