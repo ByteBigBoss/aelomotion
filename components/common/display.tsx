@@ -20,9 +20,9 @@ export const SubTitle = ({ subtitle }: SubTitleProps) => {
 
 export const Title = ({ title, caption }: TitleProps) => {
     return (
-        <div className='text-[4rem] font-bold'>
+        <div className='text-[4rem] font-bold title'>
             <div>{title}</div>
-            <div className="text-[1rem] opacity-90 font-normal w-10/12">{caption}</div>
+            <div className="text-[1rem] opacity-90 font-normal w-10/12 caption">{caption}</div>
         </div>
     )
 };

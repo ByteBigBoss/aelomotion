@@ -78,3 +78,89 @@
   display: none;
 }
 
+
+@media (max-width: 964px) {
+  .con{
+    padding: 0px;
+  }
+  .sidebar{
+    display: none;
+  }
+  .main-con{
+    padding-left: 0px;
+  
+  }
+  .tab-con{
+    height: 40rem;
+  }
+  .title{
+    font-size: 2.4rem;
+    line-clamp: 2;
+    line-height: 46px;
+  }
+  .caption{
+    padding-top: 20px;
+    line-height: 26px;
+    width: 100%;
+  }
+  .menubar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .tt{
+    font-size: 2rem;
+  }
+  .cc{
+    font-size: 14px;
+  }
+}
+
+@media (min-width:964px) and (max-width: 1280px) {
+  .con{
+    padding: 20px;
+  }
+  .sidebar{
+    display: block;
+  }
+  .main-con{
+    padding-left: 300px;
+  }
+  .tab-con{
+    height: 40rem;
+  }
+  .menubar{
+    display: none;
+  }
+  .tt{
+    font-size: 5rem;
+  }
+  .cc{
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .con{
+    padding: 20px;
+  }
+  .sidebar{
+    display: block;
+  }
+  .main-con{
+    padding-left: 300px;
+  }
+  .tab-con{
+    height: 40rem;
+  }
+  .menubar{
+    display: none;
+  }
+  .tt{
+    font-size: 5rem;
+  }
+  .cc{
+    font-size: 24px;
+  }
+}
+
