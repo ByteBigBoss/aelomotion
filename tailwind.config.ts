@@ -13,7 +13,15 @@ const config = {
 	],
   prefix: "",
   theme: {
-    
+    screens: {
+      "2xl": "1400px",
+      mobile: { max: "760px" },
+      mobileH: {  min: "520px",max: "760px" },
+      mid: { min: "760px", max: "992px" },
+      tab: { min: "760px", max: "1280px" },
+      desktop: { min: "1280px" },
+      wide: { min: "1480px" },
+    },
     container: {
       center: true,
       padding: "2rem",

@@ -39,7 +39,7 @@ export function Previewer({ preview, code, fragment, title, description }: Reado
             title: "Preview",
             value: "preview",
             content: (
-                <div className="w-full h-full rounded-[24px] border border-[#0000001f] dark:border-[#ffffff1f] bg-white dark:bg-imcrox-secondary-bcolor-dark flex flex-col items-center justify-center">
+                <div className="w-full h-full rounded-[24px] overflow-hidden border border-[#0000001f] dark:border-[#ffffff1f] bg-white dark:bg-imcrox-secondary-bcolor-dark flex flex-col items-center justify-center">
                     {preview}
                 </div>
             ),
