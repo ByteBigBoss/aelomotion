@@ -33,9 +33,9 @@ const Menubar = () => {
   return (
     <Drawer open={isDrawerOpen} onOpenChange={setDrawerOpen}>
       <DrawerTrigger asChild>
-        <div className='relative flex items-start justify-center z-[10]'><Menu /></div>
+        <div className='relative flex items-start justify-center z-[40] cursor-pointer'><Menu /></div>
       </DrawerTrigger>
-      <DrawerContent className="bg-blue-600">
+      <DrawerContent className="from-blue-800 to-blue-500 bg-gradient-to-t ">
         <DrawerHeader className='flex items-center w-full justify-between'>
           <DrawerTitle className={`${rajdhani.className} font-bold text-[32px]`}>Aelomotion</DrawerTitle>
           <ModeToggle />

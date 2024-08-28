@@ -39,7 +39,7 @@ export default function RootLayout({
             'reddit'
           ]}
         >
-          <aside className="w-[300px] sidebar  fixed top-0 left-0 min-h-screen bg-blue-600 box-border  text-white ">
+          <aside className="w-[300px] sidebar  fixed top-0 left-0 min-h-screen from-blue-800 to-blue-500 bg-gradient-to-t box-border  text-white ">
             <ScrollArea className="h-[100vh] w-full py-4">
               <Sidebar />
             </ScrollArea>
