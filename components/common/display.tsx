@@ -14,7 +14,7 @@ type SubTitleProps = {
 
 export const SubTitle = ({ subtitle }: SubTitleProps) => {
     return (
-        <div className="text-[1.25rem] font-semibold w-full py-2 box-border px-4 bg-blue-950 text-white rounded-md">{subtitle}</div>
+        <div className="text-[1.25rem] mobile:text-[1rem] font-semibold w-full py-2 box-border px-4 bg-blue-950 text-white rounded-md">{subtitle}</div>
     )
 };
 
@@ -35,9 +35,9 @@ interface BlockTextProps{
 export const BlockText = ({title,des}:BlockTextProps)=>{
     return (
         <div>
-            <div className="text-[2rem] font-bold">{title}</div>
+            <div className="text-[2rem] mobile:text-[1.5rem] mid:text-[1.5rem] font-bold">{title}</div>
             <div>
-                <p className="opacity-80">{des}</p>
+                <p className="opacity-80 mobile:text-[15px]">{des}</p>
             </div>
         </div>
     )
