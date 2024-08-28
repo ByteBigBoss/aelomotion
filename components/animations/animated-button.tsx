@@ -29,7 +29,7 @@ const AnimatedButton = ({ children, hoverVarints, tapVariants ,className, refres
     };
 
     return (
-        <Preview SetCount={setCount} isRefreshing={refresh} animeName='AnimatedButton'>
+        <Preview SetCount={setCount} isRefreshing={refresh} animeName='Animated Button'>
             <motion.button
                 key={count}
                 variants={buttonVariants}

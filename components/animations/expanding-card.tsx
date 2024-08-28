@@ -19,7 +19,7 @@ const ExpandingCard = ({ children, className,  Head, beforeTrigger, afterTrigger
 
 
     return (
-        <Preview SetCount={setCount} isRefreshing={refresh} animeName='FadeIn'>
+        <Preview SetCount={setCount} isRefreshing={refresh} animeName='Expanding Card'>
             <motion.div key={count} layout onClick={() => setIsExpanded(!isExpanded)} className={className}>
                 <motion.div layout>{Head}</motion.div>
                 {isExpanded && <motion.div layout>

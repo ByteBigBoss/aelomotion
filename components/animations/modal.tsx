@@ -23,7 +23,7 @@ const Modal = ({ children, animate, exit, initial, refresh }: ModalProps) => {
     }
 
     return (
-        <Preview SetCount={setCount} isRefreshing={refresh} animeName='Model'>
+        <Preview SetCount={setCount} isRefreshing={refresh} animeName='Modal'>
             <AnimatePresence key={count}>
                 {open && (
                     <motion.div

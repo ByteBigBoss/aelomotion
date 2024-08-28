@@ -14,7 +14,7 @@ const Sidebar = () => {
 
     return (
         <div className='flex flex-col w-full pb-[40px]'>
-            <div className='px-4 mb-4 flex items-center justify-between pb-3'><span className={`${rajdhani.className} font-bold text-[32px] `}>Aelomotion</span><ModeToggle /></div>
+            <div className='px-4 mb-4 flex items-center justify-between pb-3'><Link href={'/'} className={`${rajdhani.className} font-bold text-[32px] `}>Aelomotion</Link><ModeToggle /></div>
             {SidebarContent.map((data, key) => (
                 <div key={key} className='text-start mt-4'>
                     <Link href={data.href} onClick={() => setId(data.ID)} className={`w-full text-[16px] line-clamp-2 font-semibold flex items-center gap-2 px-4 `}><Boxes size={18} />{data.name}</Link>
