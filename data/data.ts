@@ -77,6 +77,11 @@ export const SidebarContent = [
                 "name":"Scroll Animation",
                 "href":"/custom/hook/scroll-animation"
             },
+            {
+                "ID":5,
+                "name":"Two Way Scroll Animation",
+                "href":"/custom/hook/two-way-scroll-animation"
+            },
         ]
     },
     {

@@ -1,11 +1,10 @@
 import React from "react";
 import { Title } from "@/components/common/display";
 import { Previewer } from "@/components/custom/previewer";
-import {  SCROLL, TWO_WAY_SCROLL } from "@/data/codes";
+import {  SCROLL } from "@/data/codes";
 import Editor from "@/components/custom/code";
 import { Separator } from "@/components/ui/separator";
 import ScrollAnimation from "@/components/animations/scroll-animation";
-import TwoWayScrollAnimation from '@/components/animations/two-way-scroll-animation';
 
 const Scroll = () => {
   return (
@@ -34,30 +33,6 @@ const Scroll = () => {
           }
           code={
             <Editor CODE={SCROLL} />
-          }
-        />
-      </div>
-
-      <div className="">
-        <Previewer
-          title="Two Way Scroll Animation"
-          description="Example of how to use Scroll animation with frame motion."
-          fragment={TWO_WAY_SCROLL}
-          fileName="fade-in.tsx"
-          preview={
-            <TwoWayScrollAnimation
-              animate={{ opacity: 1, y: 0 }}  // Animation when scrolling down
-              reverse={{ opacity: 0, y: 50 }} // Reverse animation when scrolling up
-              initial={{ opacity: 0, y: 50 }}   // Initial state
-              threshold={0.5}  // Trigger when 50% of the element is in view
-            >
-              <div className="w-52 h-52 rounded-full from-purple-500 to-pink-500 bg-gradient-to-t" />
-            </TwoWayScrollAnimation>
-
-
-          }
-          code={
-            <Editor CODE={TWO_WAY_SCROLL} />
           }
         />
       </div>
