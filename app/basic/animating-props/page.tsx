@@ -20,8 +20,8 @@ const AnimatedProps = () => {
           fileName='move-element.tsx'
           fragment={MOVE_ELEMENT}
           preview={
-           <MoveElement animate={100} initial={-100}  duration={1}>
-            <div className='w-52 h-52 mobile:w-24 mobile:h-24 rounded-md from-purple-500 to-pink-500 bg-gradient-to-r'></div>
+           <MoveElement refresh animate={100} initial={-100}  duration={1}>
+              <div className='w-52 h-52 mobile:w-24 mobile:h-24 rounded-md from-purple-500 to-pink-500 bg-gradient-to-r'></div>
            </MoveElement>
           }
           code={

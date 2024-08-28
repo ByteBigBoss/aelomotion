@@ -17,9 +17,10 @@ interface AnimatedButtonProps {
     hoverVarints: hoverProps;
     tapVariants: tapProps;
     className?:string;
+    refresh:boolean;
 }
 
-const AnimatedButton = ({ children, hoverVarints, tapVariants ,className}: AnimatedButtonProps) => {
+const AnimatedButton = ({ children, hoverVarints, tapVariants ,className, refresh}: AnimatedButtonProps) => {
     const [count, setCount] = useState(0);
 
     const buttonVariants = {
@@ -28,7 +29,7 @@ const AnimatedButton = ({ children, hoverVarints, tapVariants ,className}: Anima
     };
 
     return (
-        <Preview SetCount={setCount} isRefreshing={true} animeName='AnimatedButton'>
+        <Preview SetCount={setCount} isRefreshing={refresh} animeName='AnimatedButton'>
             <motion.button
                 key={count}
                 variants={buttonVariants}

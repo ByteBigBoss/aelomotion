@@ -13,7 +13,7 @@ const Sidebar = () => {
     const path = usePathname();
 
     return (
-        <div className='flex flex-col w-full '>
+        <div className='flex flex-col w-full pb-[40px]'>
             <div className='px-4 mb-4 flex items-center justify-between pb-3'><span className={`${rajdhani.className} font-bold text-[32px] `}>Aelomotion</span><ModeToggle /></div>
             {SidebarContent.map((data, key) => (
                 <div key={key} className='text-start mt-4'>
@@ -25,6 +25,8 @@ const Sidebar = () => {
                     </div>
                 </div>
             ))}
+
+            
         </div>
     )
 }

@@ -20,7 +20,7 @@ const MotionComponents = () => {
           fragment={FADE_IN_CODE}
           fileName="fade-in.tsx"
           preview={
-            <FadeIn initial={0} animate={1} duration={1}>
+            <FadeIn initial={0} animate={1} duration={1} refresh>
               <div className="w-52 h-52 rounded-full from-orange-500 to-yellow-500 bg-gradient-to-t" />
             </FadeIn>
           }

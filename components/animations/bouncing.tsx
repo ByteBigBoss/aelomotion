@@ -19,13 +19,14 @@ interface BouncingProps{
     children: React.ReactNode;
     animate: animateProps;
     transition: transitionProps;
+    refresh:boolean;
 }
 
-const Bouncing = ({children,animate,transition}:BouncingProps) => {
+const Bouncing = ({children,animate,transition, refresh}:BouncingProps) => {
     const [count, setCount] = useState(0);
 
     return (
-        <Preview SetCount={setCount} isRefreshing={true} animeName='Bouncing'>
+        <Preview SetCount={setCount} isRefreshing={refresh} animeName='Bouncing'>
             <motion.div
             key={count}
             animate={{ y: [animate.start, animate.middle, animate.end] }}

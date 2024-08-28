@@ -16,11 +16,11 @@ const Variants = () => {
     <div className="mt-6">
       <Previewer
         title="Button with Hover and Tap Effects"
-        description="Example of how to use variants in frame motion."
+        description="Example of how to use frame motion variants."
         fragment={ANIMATED_BUTTON}
         fileName='animated-button.tsx'
         preview={
-         <AnimatedButton className='px-6 py-3 rounded-md bg-black dark:bg-orange-500' hoverVarints={{scale:1.2, boxShadow: "0px 2px 8px rgb(0,0,0,0.2)"}} tapVariants={{scale: 0.9}}>
+         <AnimatedButton refresh className='px-6 py-3 rounded-md bg-black dark:bg-orange-500' hoverVarints={{scale:1.2, boxShadow: "0px 2px 8px rgb(0,0,0,0.2)"}} tapVariants={{scale: 0.9}}>
             <span className='text-white'>Click Me</span>
          </AnimatedButton>
         }

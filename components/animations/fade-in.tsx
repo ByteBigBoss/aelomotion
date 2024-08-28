@@ -8,13 +8,14 @@ interface FadeInProps{
     initial: number;
     animate:number;
     duration:number;
+    refresh:boolean;
 }
 
-const FadeIn = ({ children, animate, duration, initial }:FadeInProps) => {
+const FadeIn = ({ children, animate, duration, initial, refresh }:FadeInProps) => {
     const [count, setCount] = useState(0);
 
     return (
-        <Preview SetCount={setCount} isRefreshing={true} animeName='FadeIn'>
+        <Preview SetCount={setCount} isRefreshing={refresh} animeName='FadeIn'>
             <motion.div
                 key={count}
                 initial={{ opacity: initial }}

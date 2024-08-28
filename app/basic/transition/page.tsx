@@ -20,7 +20,7 @@ const Transitions = () => {
         fragment={BOUNCING}
         fileName='bouncing.tsx'
         preview={
-          <Bouncing  animate={{start:0, middle:-30, end:0}} transition={{ease:"easeInOut",duration:0.5, repeat: Infinity}}>
+          <Bouncing refresh animate={{start:0, middle:-30, end:0}} transition={{ease:"easeInOut",duration:0.5, repeat: Infinity}}>
             <div className="w-52 h-52 rounded-full from-orange-500 to-yellow-500 bg-gradient-to-t" />
           </Bouncing>
         }

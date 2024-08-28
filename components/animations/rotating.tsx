@@ -12,13 +12,14 @@ interface RotateProps{
     children: React.ReactNode;
     rotate: number[];
     transition:transitionProps;
+    refresh:boolean;
 }
 
-const Rotating = ({ children, rotate,transition  }:RotateProps) => {
+const Rotating = ({ children, rotate,transition, refresh }:RotateProps) => {
     const [count, setCount] = useState(0);
 
     return (
-        <Preview SetCount={setCount} isRefreshing={true} animeName='Rotating'>
+        <Preview SetCount={setCount} isRefreshing={refresh} animeName='Rotating'>
            <motion.div
            key={count}
             animate={{ rotate: rotate}}

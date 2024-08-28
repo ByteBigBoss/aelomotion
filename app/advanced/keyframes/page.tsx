@@ -16,11 +16,11 @@ const Keyframes = () => {
     <div className="mt-6">
       <Previewer
         title="Rotating an Element"
-        description="Example of how to use Keyframes in frame motion."
+        description="Example of how to use frame motion Keyframes."
         fragment={ROTATING}
         fileName='rotating.tsx'
         preview={
-         <Rotating rotate={[0,90, 180, 270, 360]} transition={{duration:2,repeat:Infinity}}>
+         <Rotating refresh rotate={[0,90, 180, 270, 360]} transition={{duration:2,repeat:Infinity}}>
             <div className="w-52 h-52 rounded-[24px] from-rose-500 via-pink-500 to-purple-500 bg-gradient-to-t" />
          </Rotating>
         }

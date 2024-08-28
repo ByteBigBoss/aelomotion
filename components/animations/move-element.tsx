@@ -8,13 +8,14 @@ interface MoveElementProps{
     initial: number;
     animate:number;
     duration:number;
+    refresh:boolean;
 }
 
-const MoveElement = ({ children, animate, duration, initial }: MoveElementProps) => {
+const MoveElement = ({ children, animate, duration, initial, refresh }: MoveElementProps) => {
     const [count, setCount] = useState(0);
 
     return (
-     <Preview SetCount={setCount} isRefreshing={true} animeName='Move Element'>
+     <Preview SetCount={setCount} isRefreshing={refresh} animeName='Move Element'>
             <motion.div
             key={count}
             initial={{ x: initial }}
