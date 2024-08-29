@@ -1318,4 +1318,13 @@ const OptimizedComponent = ({ children, className }: OptimizedProps) => {
 }
 
 export default OptimizedComponent;
+
+/** CSS
+ * Apply the animation to the element 
+ * .optimized-component {
+ *  opacity: 0; // Initial state to prevent flickering before animation starts 
+ *  animation: fadeInAndUp 1s ease-out forwards;
+ *  will-change: opacity, transform;
+ * }
+ * **/
 `;
