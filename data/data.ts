@@ -87,36 +87,36 @@ export const SidebarContent = [
     {
         "ID":6,
         "name":"SVG Animations",
-        "href":"/svg",
+        "href":"/svg/svg-path-animations",
         "contents":[
             {
                 "ID":6,
                 "name":"SVG Path Animations",
-                "href":"/svg"
+                "href":"/svg/svg-path-animations"
             },
         ]
     },
     {
         "ID":7,
         "name":"Orchestration",
-        "href":"/svg",
+        "href":"/orchestration/staggering-children",
         "contents":[
             {
                 "ID":7,
-                "name":"Orchestration Controls",
-                "href":"/orchestration"
+                "name":"Staggering Children",
+                "href":"/orchestration/staggering-children"
             },
         ]
     },
     {
         "ID":8,
         "name":"Optimization",
-        "href":"/performance-optimization",
+        "href":"/performance-optimization/optimized-component",
         "contents":[
             {
                 "ID":8,
-                "name":"Performance Optimization",
-                "href":"/performance-optimization"
+                "name":"Optimized Component",
+                "href":"/performance-optimization/optimized-component"
             },
         ]
     },

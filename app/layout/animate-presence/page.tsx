@@ -20,7 +20,7 @@ const AnimatePresence = () => {
                     title="Fading in and out a Modal"
                     description="Example of how to use frame motion AnimatePresence."
                     fragment={MODAL}
-                    fileName='model.tsx'
+                    fileName='modal.tsx'
                     preview={
                         <div className='w-full h-full relative flex flex-col items-center'>
                             <Modal refresh initial={0} animate={1} exit={0} isVisible={true}>

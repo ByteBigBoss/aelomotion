@@ -19,7 +19,7 @@ const Scroll = () => {
           title="Scroll Animation"
           description="Example of how to use Scroll animation with frame motion."
           fragment={SCROLL}
-          fileName="fade-in.tsx"
+          fileName="scroll-animation.tsx"
           preview={
             <ScrollAnimation
 

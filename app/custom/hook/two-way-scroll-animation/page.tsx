@@ -18,7 +18,7 @@ const TwoWayScroll = () => {
           title="Two Way Scroll Animation"
           description="Example of how to use Two Way Scroll animation with frame motion."
           fragment={TWO_WAY_SCROLL}
-          fileName="fade-in.tsx"
+          fileName="two-way-scroll-animation.tsx"
           preview={
             <TwoWayScrollAnimation
               animate={{ opacity: 1, y: 0 }}  // Animation when scrolling down

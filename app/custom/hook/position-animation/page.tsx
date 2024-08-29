@@ -18,7 +18,7 @@ const Position = () => {
           title="Position Animation"
           description="Example of how to use Position animation with frame motion."
           fragment={POSITION}
-          fileName="fade-in.tsx"
+          fileName="position-animation.tsx"
           preview={
             <PositionAnimation animate={{ opacity: 1, y: 0 }} initial={{ opacity: 0, y: 500 }}>
               <div className="w-52 h-52 rounded-full from-orange-500 to-yellow-500 bg-gradient-to-t" />

@@ -1057,3 +1057,265 @@ export const Preview = ({ children, SetCount, isRefreshing, animeName, hideIcon=
     )
 };
 `;
+
+export const SVG_PATH_ANIMATION = `
+import AnimatedSVG from "@/components/animations/animated-svg";
+import React from 'react'
+
+const SVGAnimations = () => {
+  return (
+    <div className="p-5">
+   
+        <AnimatedSVG animatePathLength={1} initialPathLength={0} duration={2} refresh className="stroke-black dark:stroke-white"/>
+
+    </div>
+  )
+}
+
+export default SVGAnimations
+
+
+"use client"
+import React, { useState } from 'react';
+import { Preview } from '../common/display';
+import { motion } from "framer-motion";
+
+interface SVGProps {
+    initialPathLength: number;
+    animatePathLength: number;
+    duration: number;
+    className?: string;
+    refresh: boolean;
+}
+
+const AnimatedSVG = ({ animatePathLength, duration, initialPathLength, refresh, className }: SVGProps) => {
+    const [count, setCount] = useState(0);
+
+    return (
+        <Preview SetCount={setCount} isRefreshing={refresh} animeName='SVG Path Animation'>
+
+            <motion.svg key={count} width="100" height="100" viewBox="0 0 100 100">
+                <motion.path
+                    d="M 10 10 H 90 V 90 H 10 Z"
+                    className={className?className:'stroke-black'}
+                    fill="transparent"
+                    strokeWidth="2"
+                    initial={{ pathLength: initialPathLength }}
+                    animate={{ pathLength: animatePathLength }}
+                    transition={{ duration: duration }}
+                />
+            </motion.svg>
+        </Preview>
+
+    )
+}
+
+export default AnimatedSVG;
+
+
+interface PreviewerProps {
+    children: React.ReactNode;
+    SetCount: (count: number) => void;
+    isRefreshing: boolean;
+    animeName:string
+    hideIcon?: boolean;
+}
+export const Preview = ({ children, SetCount, isRefreshing, animeName, hideIcon=false }: PreviewerProps) => {
+    const [count, setCount] = useState(0);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleClick = () => {
+        setIsLoading(true);
+        setCount(count + 1);
+
+        SetCount(count + 1);
+
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 400); // Timeout duration matches the animation duration
+    };
+    return (
+        <div className="w-full h-full flex flex-col">
+            <div className="w-full flex-1 flex justify-center items-center">
+            {children}
+            </div>
+
+            {isRefreshing &&
+                <div  className="h-[50px] w-full px-6 rounded-b-[24px] flex justify-between">
+                    <span>{animeName}</span>{!hideIcon && <RotateCw onClick={handleClick} className={isLoading ? 'animate-spin duration-200' : 'animate-none'} />}
+                </div>
+            }
+        </div>
+    )
+};
+`;
+
+export const STAGGERING_CHILDREN = `
+import StaggeredList from "@/components/animations/staggered-list";
+import React from 'react'
+
+const Orchestration = () => {
+  return (
+    <div className="p-5">
+   
+        <StaggeredList containerVariants={{transition:{staggerChildren:0.5}}} itemVariants={{hidden:{opacity:0, y:-60}, visible:{opacity:1, y:0}}} 
+            items={[
+                {
+                  item:
+                  <div>
+                      <div className="w-60 h-20 rounded-xl from-orange-500 to-yellow-500 bg-gradient-to-t" />
+                  </div>
+                },
+                {
+                  item:
+                  <div>
+                      <div className="w-60 h-20 rounded-xl from-purple-500 to-pink-500 bg-gradient-to-t" />
+                  </div>
+                },
+                {
+                  item:
+                  <div>
+                      <div className="w-60 h-20 rounded-xl from-emerald-500 to-lime-500 bg-gradient-to-t" />
+                  </div>
+                },
+                {
+                  item:
+                  <div>
+                      <div className="w-60 h-20 rounded-xl from-cyan-500 to-blue-500 bg-gradient-to-t" />
+                  </div>
+                }
+              ]} 
+            refresh
+        />
+    </div>
+  )
+}
+
+export default Orchestration
+
+
+"use client"
+import React, { useState } from 'react';
+import { Preview } from '../common/display';
+import { motion } from "framer-motion";
+
+interface StaggeredListProps {
+    containerVariants: containerProps;
+    itemVariants: itemProps;
+    items: childs[];
+    refresh: boolean;
+    className?:string;
+}
+
+interface transitionProps { staggerChildren: number; }
+interface containerProps {
+    transition: transitionProps;
+}
+
+interface childs {
+    item: React.ReactNode;
+}
+
+interface variants {
+    opacity: number;
+    y: number;
+}
+interface itemProps {
+    hidden: variants;
+    visible: variants;
+}
+
+const StaggeredList = ({ containerVariants, itemVariants, refresh, items ,className }: StaggeredListProps) => {
+    const [count, setCount] = useState(0);
+
+    return (
+        <Preview SetCount={setCount} isRefreshing={refresh} animeName='StaggeredList'>
+            <motion.ul key={count} variants={containerVariants} initial="hidden" animate="visible" className={className}>
+                {items.map((data, key) => (
+                    <motion.li key={key} variants={itemVariants}>{data.item}</motion.li>
+                ))}
+            </motion.ul>
+        </Preview>
+
+    )
+}
+
+export default StaggeredList
+
+
+interface PreviewerProps {
+    children: React.ReactNode;
+    SetCount: (count: number) => void;
+    isRefreshing: boolean;
+    animeName:string
+    hideIcon?: boolean;
+}
+export const Preview = ({ children, SetCount, isRefreshing, animeName, hideIcon=false }: PreviewerProps) => {
+    const [count, setCount] = useState(0);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleClick = () => {
+        setIsLoading(true);
+        setCount(count + 1);
+
+        SetCount(count + 1);
+
+        setTimeout(() => {
+            setIsLoading(false);
+        }, 400); // Timeout duration matches the animation duration
+    };
+    return (
+        <div className="w-full h-full flex flex-col">
+            <div className="w-full flex-1 flex justify-center items-center">
+            {children}
+            </div>
+
+            {isRefreshing &&
+                <div  className="h-[50px] w-full px-6 rounded-b-[24px] flex justify-between">
+                    <span>{animeName}</span>{!hideIcon && <RotateCw onClick={handleClick} className={isLoading ? 'animate-spin duration-200' : 'animate-none'} />}
+                </div>
+            }
+        </div>
+    )
+};
+`;
+
+export const OPTIMIZED_COMPONENT = `
+import StaggeredList from "@/components/animations/staggered-list";
+import React from 'react'
+
+const Orchestration = () => {
+  return (
+    <div className="p-5">
+   
+        <OptimizedComponent >
+          <div className="w-52 h-52 animate-spin rounded-[20px] from-orange-500 to-yellow-500 bg-gradient-to-t" />
+        </OptimizedComponent>
+
+    </div>
+  )
+}
+
+export default Orchestration
+
+
+"use client"
+import React, { useState } from 'react';
+import { Preview } from '../common/display';
+import { motion } from "framer-motion";
+
+interface OptimizedProps {
+    children: React.ReactNode;
+    className?: string;
+}
+const OptimizedComponent = ({ children, className }: OptimizedProps) => {
+
+    return (
+        <motion.div style={{ willChange: "transform" }} className={className}>
+            {children}
+        </motion.div>
+    )
+}
+
+export default OptimizedComponent;
+`;
