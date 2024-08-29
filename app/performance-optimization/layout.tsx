@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Custom Animations",
-    description: "Animations with Framer Motion useAnimation Hook",
+    title: "Performance Optimization",
+    description: "Optimize the performance of your animations.",
 };
 
 export default function AnimateLayout({
