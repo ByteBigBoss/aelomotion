@@ -1281,10 +1281,10 @@ export const Preview = ({ children, SetCount, isRefreshing, animeName, hideIcon=
 `;
 
 export const OPTIMIZED_COMPONENT = `
-import StaggeredList from "@/components/animations/staggered-list";
+import OptimizedComponent from "@/components/animations/optimized-component";
 import React from 'react'
 
-const Orchestration = () => {
+const PerformanceOptimization = () => {
   return (
     <div className="p-5">
    
@@ -1296,7 +1296,7 @@ const Orchestration = () => {
   )
 }
 
-export default Orchestration
+export default PerformanceOptimization
 
 
 "use client"
